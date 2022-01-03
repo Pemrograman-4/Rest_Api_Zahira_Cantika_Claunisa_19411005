@@ -6,10 +6,17 @@ router.post("/add", (req, res) => {
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
+//get data
 router.get("/get", (req, res) => {
   Controller.get(req.body)
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
+
+//delete data
+router.delete("/delete/:id", Controller.delete);
+
+//update
+router.put("/update/:id", Controller.update);
 
 module.exports = router;
